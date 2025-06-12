@@ -15,7 +15,9 @@ RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 
 COPY --from=builder /app/service .
+COPY --from=builder /app/storage ./storage
 COPY .env ./ 
 
 EXPOSE 50051
 CMD ["./service"]
+
