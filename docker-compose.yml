@@ -21,8 +21,6 @@ services:
   video-service:
     build:
       context: .
-      args:
-        CONTRACT_PATH: ""
     depends_on:
       mongo:
         condition: service_healthy

@@ -1,14 +1,14 @@
 module github.com/nikaydo/video-service
 
-go 1.24.2
+go 1.25.0
 
 require (
 	github.com/caarlos0/env/v11 v11.3.1
 	github.com/google/uuid v1.6.0
 	github.com/joho/godotenv v1.5.1
-	github.com/nikaydo/grpc-contract v0.0.0
+	github.com/nikaydo/grpc-contract v0.4.0
 	go.mongodb.org/mongo-driver v1.17.4
-	google.golang.org/grpc v1.73.0
+	google.golang.org/grpc v1.81.0
 )
 
 require (
@@ -19,13 +19,11 @@ require (
 	github.com/xdg-go/scram v1.1.2 // indirect
 	github.com/xdg-go/stringprep v1.0.4 // indirect
 	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
-	golang.org/x/crypto v0.36.0 // indirect
-	golang.org/x/net v0.38.0 // indirect
-	golang.org/x/sync v0.12.0 // indirect
-	golang.org/x/sys v0.31.0 // indirect
-	golang.org/x/text v0.23.0 // indirect
-	google.golang.org/genproto/googleapis/rpc v0.0.0-20250324211829-b45e905df463 // indirect
-	google.golang.org/protobuf v1.36.10 // indirect
+	golang.org/x/crypto v0.48.0 // indirect
+	golang.org/x/net v0.51.0 // indirect
+	golang.org/x/sync v0.20.0 // indirect
+	golang.org/x/sys v0.42.0 // indirect
+	golang.org/x/text v0.34.0 // indirect
+	google.golang.org/genproto/googleapis/rpc v0.0.0-20260226221140-a57be14db171 // indirect
+	google.golang.org/protobuf v1.36.11 // indirect
 )
-
-replace github.com/nikaydo/grpc-contract => ../grpc-contract
