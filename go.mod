@@ -1,17 +1,17 @@
-module main
+module github.com/nikaydo/video-service
 
 go 1.24.2
 
 require (
+	github.com/caarlos0/env/v11 v11.3.1
 	github.com/google/uuid v1.6.0
 	github.com/joho/godotenv v1.5.1
-	github.com/nikaydo/grpc-contract v0.0.9
+	github.com/nikaydo/grpc-contract v0.0.0
 	go.mongodb.org/mongo-driver v1.17.4
 	google.golang.org/grpc v1.73.0
 )
 
 require (
-	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/klauspost/compress v1.16.7 // indirect
 	github.com/montanaflynn/stats v0.7.1 // indirect
@@ -25,5 +25,7 @@ require (
 	golang.org/x/sys v0.31.0 // indirect
 	golang.org/x/text v0.23.0 // indirect
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20250324211829-b45e905df463 // indirect
-	google.golang.org/protobuf v1.36.6 // indirect
+	google.golang.org/protobuf v1.36.10 // indirect
 )
+
+replace github.com/nikaydo/grpc-contract => ../grpc-contract

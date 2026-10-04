@@ -1,0 +1,46 @@
+# Локальный запуск сервиса, базы и хранилища.
+#
+#   docker compose up --build
+#
+# Значения по умолчанию предназначены только для разработки.
+
+services:
+  mongo:
+    image: mongo:8-alpine
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  video-service:
+    build:
+      context: .
+      args:
+        CONTRACT_PATH: ""
+    depends_on:
+      mongo:
+        condition: service_healthy
+    ports:
+      - "50053:50053"
+    environment:
+      MONGODB_URI: mongodb://mongo:27017
+      MONGODB_NAME: video
+      VIDEO_DIR: /app/storage/video
+      HOST: 0.0.0.0
+      PORT: 50053
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      # Видео вынесено на том: иначе оно занимает место внутри контейнера.
+      - videos:/app/storage
+
+volumes:
+  mongodata:
+  videos:
